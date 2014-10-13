@@ -6,8 +6,12 @@ use Apache::Htpasswd;
 # Get username and password
 #
 
-my $username = $ENV{'username'};
-my $password = $ENV{'password'};
+open FILE, $ARGV[1];
+my $username = <FILE>;
+my $password = <FILE>;
+
+chomp $username;
+chomp $password;
 
 if ($username eq "") { print 'Empty username'; exit(1); }
 
